@@ -1,11 +1,11 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, memo } from 'react';
 
-const Sortpopup = ({ items }) => {
+const Sortpopup = memo(({ items }) => {
     const [visiblePopup, setvisiblePopup] = useState(false);
     const [activeClassSortLi, setactiveClassSortLi] = useState(0);
     const sortRef = useRef()
 
-    const activeLabel = items[activeClassSortLi];
+    const activeLabel = items[activeClassSortLi].name;
 
     const handelOutsideClick = (e) => {
         if (!e.path.includes(sortRef.current)) {
@@ -55,11 +55,11 @@ const Sortpopup = ({ items }) => {
                         {
                             items.map((el, index) => (
                                 <li
-                                    key={el}
+                                    key={el.type}
                                     className={activeClassSortLi === index ? "active" : ''}
                                     onClick={() => { onSelectItem(index) }}
                                 >
-                                    {el}
+                                    {el.name}
                                 </li>))
                         }
                     </ul>
@@ -69,5 +69,5 @@ const Sortpopup = ({ items }) => {
         </div>
     );
 }
-
+)
 export default Sortpopup;

@@ -8,7 +8,7 @@ const Header = () => {
     return (
         <div className="header">
             <div className="container">
-                <Link to="/" end >
+                <Link to="/"  >
                     <div className="header__logo">
                         <img width="38" src={logo} alt="Pizza logo" />
                         <div>
@@ -17,7 +17,7 @@ const Header = () => {
                         </div>
                     </div>
                 </Link>
-                <Link to="/cart" end >
+                <Link to="/cart" >
                     <div className="header__cart">
                         <Button className="button button--cart">
                             <span>520 ₽</span>
